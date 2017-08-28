@@ -98,13 +98,9 @@ After Sync has downloaded the config file, the fake server will shutdown automat
 
 重启Sync后，它会从我们的冒充服务器下载sync.conf文件，并保存在缓存中。此后，我们的冒充服务器就会自动关闭，然后自动恢复hosts文件的设置。因为真的config.resilio.com被和谐了，所以此后Sync无法获得真的sync.conf文件，就会一直使用缓存中的数据。
 
-If the program blocks and does not finish after Sync is restarted, it is probably because the automated script does not set your hosts file properly. You can do it manually. Add the following entry in your hosts file.
+If the program blocks at "Restart Sync" message and does not finish after Sync restarted, it is probably because the (fake) certificate we use does not pass the validation. It is wierd that some of the machines I test does not require a valid certificate while some others do. You can manually trust the CA certificate "do\_not\_trust.crt" (by double click open the cert and add it to the Trusted CA list), and retry this whole step again. Remember to untrust the cert after this step.
 
-如果重启了Sync之后，程序卡住了而没有自动执行完成，那多半是因为它没能正确设置hosts文件。你可以尝试在hosts文件中手动加入下面的条目。
-
-```
-127.0.0.1    config.resilio.com
-```
+如果重启了Sync之后，程序卡住了而没有自动执行完成，那多半是因为Sync不能验证我们的假证书。奇怪的是，一些机器上，Sync并不验证证书的有效性，但在有些机器上，却要求证书有效。这时，你可以把"do\_not\_trust.crt"这个文件证书添加到系统的信任列表中（通常双击打开，再选择添加到信任的CA列表），之后重新尝试整个步骤。不要忘了在这一步完成之后，停止信任这个证书。
 
 ### Start tracker proxy 启动本机转发服务
 
