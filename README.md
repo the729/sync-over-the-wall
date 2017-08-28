@@ -4,6 +4,10 @@ Redirecting Resilio Sync's tracker and relay connection through a SOCKS server, 
 
 通过SOCKS代理连接Resilio Sync的tracker和relay服务器，保持peer连接仍然直连。
 
+Support Resilio Sync 2.5.7+.
+
+支持Resilio Sync 2.5.7以上版本。
+
 # Background 背景
 
 Resilio Sync's tracker and relay servers are block by The Wall. Without trackers, Sync can not discover peers on the Internet. 
@@ -147,3 +151,7 @@ iptables -t nat -A POSTROUTING -d 107.182.230.198 -p tcp -m tcp --dport 3000 -j 
 TCP tee proxy code is based on https://gist.github.com/jwustrack/0c7cb063a28ce14766d421e8d8a12fcc
 
 TCP三通代理代码是基于上面链接中的gist.
+
+The core idea of Method 2 is based on https://forum.resilio.com/topic/43469-volunteers-required/?do=findComment&comment=121618
+
+方法二的核心思想是基于上述论坛帖子。
