@@ -28,7 +28,7 @@ def main():
     # Step 2
     #print "\r\nStep 2: start fake config.resilio.com server..."
     httpd = BaseHTTPServer.HTTPServer(('127.0.0.1', 443), ConfigHandler)
-    httpd.socket = ssl.wrap_socket (httpd.socket, keyfile='./do_not_trust.key', certfile='./do_not_trust.crt', server_side=True)
+    httpd.socket = ssl.wrap_socket (httpd.socket, keyfile='./resilio.key', certfile='./resilio.crt', server_side=True)
     print "Fake server started."
     print "After Sync has requested the config file, this program should go on automatically."
     print "If this program blocks here, please refer to %s" % BLOG_URL
